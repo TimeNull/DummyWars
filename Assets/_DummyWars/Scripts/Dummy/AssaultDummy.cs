@@ -5,17 +5,30 @@ public class AssaultDummy : MonoBehaviour
 {
     private void Start()
     {
-        //BehaviourTree bt = GetComponent<BehaviourTree>();
+        BehaviourTree bt = GetComponent<BehaviourTree>();
 
-        //BTSequence collect = new BTSequence();
+        BTSelector check = new BTSelector();
+        check.children.Add(new BTNearestShieldOpponent());
+        check.children.Add(new BTNearestOpponent());
 
-        //collect.children.Add(new BTHasCollectable());
-        //collect.children.Add(new BTMoveToCollectable());
-        //collect.children.Add(new BTCollect());
+        BTMoveToOpponent move = new BTMoveToOpponent();
 
-        //bt.root = collect;
+        BTSequence combat = new BTSequence();
+        combat.children.Add(new BTOpponentIsAlive());
+        combat.children.Add(new BTAttackOpponent());
+        combat.children.Add(new BTDodgeOpponent());
 
-        //StartCoroutine(bt.Begin());
+        BTRepeatUntilFail loopCombat = new BTRepeatUntilFail();
+        loopCombat.repeat = combat;
+
+        BTSequence root = new BTSequence();
+        root.children.Add(check);
+        root.children.Add(move);
+        root.children.Add(loopCombat);
+
+        bt.root = root;
+
+        StartCoroutine(bt.Begin());
     }
 }
 

@@ -1,13 +1,20 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public delegate void GameChange();
 
 public class GameManager : SceneSingleton<GameManager>
 {
     public string singletonCheck;
 
+    public GameChange startGame;
+    public GameChange pauseGame;
+    public GameChange restartGame;
+
     [HideInInspector]
     public NPCManager NPCManager;
+
+    private bool gamePaused;
 
     private void Awake()
     {
@@ -27,5 +34,23 @@ public class GameManager : SceneSingleton<GameManager>
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
+
+        if (Input.GetKeyDown(KeyCode.Space) && gamePaused)
+        {
+            startGame.Invoke();
+            gamePaused = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && !gamePaused)
+        {
+            pauseGame.Invoke();
+            gamePaused = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            startGame.Invoke();
+        }
+
     }
 }
