@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-public class BTSelector : BTNode  //Executa todos os nodes filhos em ordem, até que um resulte em sucesso
+public class BTSelector : BTNode  //Executa todos os nodes filhos em ordem, até que um resulte em sucesso, ou todos sejam completados
 {
-    private readonly List<BTNode> children = new List<BTNode>();
+    public List<BTNode> children = new List<BTNode>();
+
     public override IEnumerator Run(BehaviourTree bt)
     {
         status = Status.RUNNING;

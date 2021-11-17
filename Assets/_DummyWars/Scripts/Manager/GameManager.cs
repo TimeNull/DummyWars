@@ -11,6 +11,7 @@ public class GameManager : SceneSingleton<GameManager>
 
     private void Awake()
     {
+        DynamicGI.UpdateEnvironment();
         NPCManager = GetComponent<NPCManager>();
         Debug.Log("A palavra-chave da cena atual é: " + Instance.singletonCheck);
     }

@@ -7,6 +7,8 @@ public class SceneSingleton<T> : MonoBehaviour where T : SceneSingleton<T>
 {
     private static T _Instance = null;
 
+    protected SceneSingleton() { }
+
     public static T Instance
     {
         get
