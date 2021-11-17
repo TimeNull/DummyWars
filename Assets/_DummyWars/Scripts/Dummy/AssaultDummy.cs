@@ -1,9 +1,9 @@
 using UnityEngine;
 
 [RequireComponent(typeof(BehaviourTree))]
-public class AssaultDummy : MonoBehaviour
+public class AssaultDummy : Dummy
 {
-    private void Start()
+    protected override void InitializeBehaviourTree()
     {
         BehaviourTree bt = GetComponent<BehaviourTree>();
 
@@ -27,8 +27,8 @@ public class AssaultDummy : MonoBehaviour
         root.children.Add(loopCombat);
 
         bt.root = root;
-
-        StartCoroutine(bt.Begin());
     }
+
+
 }
 

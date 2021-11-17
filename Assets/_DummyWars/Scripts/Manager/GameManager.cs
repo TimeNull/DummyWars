@@ -8,13 +8,12 @@ public class GameManager : SceneSingleton<GameManager>
     public string singletonCheck;
 
     public GameChange startGame;
-    public GameChange pauseGame;
     public GameChange restartGame;
 
     [HideInInspector]
     public NPCManager NPCManager;
 
-    private bool gamePaused;
+    private bool gamePaused = false;
 
     private void Awake()
     {
@@ -35,21 +34,27 @@ public class GameManager : SceneSingleton<GameManager>
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && gamePaused)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
+            Debug.Log("START GAME");
             startGame.Invoke();
-            gamePaused = false;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && !gamePaused)
         {
-            pauseGame.Invoke();
+            //TODO: pause Game
             gamePaused = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && gamePaused)
         {
-            startGame.Invoke();
+            //TODO: unpause Game
+            gamePaused = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            //TODO: restart Game
         }
 
     }
