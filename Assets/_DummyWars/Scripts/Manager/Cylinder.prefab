@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8735546350180806191}
   - component: {fileID: 4148202646248146985}
   - component: {fileID: 1137373403209079061}
+  - component: {fileID: 5932505240889877126}
+  - component: {fileID: -8286946031704748488}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Ally
@@ -96,3 +98,30 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &5932505240889877126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6992162063582388893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 521df196f986be346971bb23d0ff85f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLife: 120
+  currentLife: 0
+--- !u!114 &-8286946031704748488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6992162063582388893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10658a6e67b3c024380773abe55bfeb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 30

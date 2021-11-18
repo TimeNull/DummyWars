@@ -7,6 +7,11 @@ public class Life : MonoBehaviour
     public float maxLife;
     [HideInInspector] public float currentLife;
 
+    private void OnEnable()
+    {
+        currentLife = maxLife;
+    }
+
     public void ReceiveDamage(float damageAmount)
     {
         currentLife -= damageAmount;
@@ -16,13 +21,13 @@ public class Life : MonoBehaviour
             if (this.gameObject.tag == "Ally")
             {
                 GameObject[] allies = GameObject.FindGameObjectsWithTag("Ally");
-                if(allies.Length <= 0)
+                if(allies.Length - 1 <= 0)
                     GameManager.Instance.gameOver();
             }
             if (this.gameObject.tag == "Enemy")
             {
                 GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-                if (enemies.Length <= 0)
+                if (enemies.Length - 1 <= 0)
                     GameManager.Instance.victory();
             }
 

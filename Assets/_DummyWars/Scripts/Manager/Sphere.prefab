@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8971010124604952757}
   - component: {fileID: 7231521311308043308}
   - component: {fileID: 371490078570029867}
+  - component: {fileID: -5672922349832160945}
+  - component: {fileID: -5069538064650262998}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Ally
@@ -95,3 +97,30 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-5672922349832160945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4458258119256037694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 521df196f986be346971bb23d0ff85f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLife: 300
+  currentLife: 0
+--- !u!114 &-5069538064650262998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4458258119256037694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10658a6e67b3c024380773abe55bfeb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 60

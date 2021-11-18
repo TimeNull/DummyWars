@@ -139,5 +139,6 @@ public class GameManager : SceneSingleton<GameManager>
     public void SpawnThisObject(GameObject targetObject)
     {
         SummonManager.spawnObject = targetObject;
+        SummonManager.costMob = targetObject.GetComponent<Cost>().cost;
     }
 }
