@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_DummyWars/Scenes/Test Singleton.unity
     guid: 22187e90085c97144b6c2ad47724c28c
+  - enabled: 1
+    path: Assets/_DummyWars/Scenes/MainMenu.unity
+    guid: 05f04f085f8bcd94ca57d453c40c09ca
+  - enabled: 1
+    path: Assets/_DummyWars/Scenes/Creditos.unity
+    guid: 8950bbe4d985bf74ea4f997154e11824
+  - enabled: 1
+    path: Assets/_DummyWars/Scenes/Maranza.unity
+    guid: 7274cbc05f782de45adc4f65961493de
   m_configObjects: {}
