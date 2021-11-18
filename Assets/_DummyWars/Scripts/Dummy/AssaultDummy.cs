@@ -3,6 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(BehaviourTree))]
 public class AssaultDummy : Dummy
 {
+
+
     protected override void InitializeBehaviourTree()
     {
         BehaviourTree bt = GetComponent<BehaviourTree>();

@@ -18,7 +18,7 @@ public class SummonManager : MonoBehaviour
 
         if (Physics.Raycast (rayCast, out hit, Mathf.Infinity, layersToAffect))
         {
-            if(hit.transform.tag == "Ground" && Input.GetMouseButtonDown(0) && spawnObject != null && MoneyManager.remainingMoney - costMob >= 0)
+            if(hit.transform.tag == "Ground" && Input.GetMouseButtonDown(0) && spawnObject != null && MoneyManager.remainingMoney - costMob >= 0) //coloca inimigo
             {
                 Instantiate(spawnObject, hit.point, Quaternion.identity);
                 MoneyManager.remainingMoney -= costMob;
@@ -26,17 +26,12 @@ public class SummonManager : MonoBehaviour
                 UpdateRemainingMoney.updateMoneyText();
             }
 
-            if(hit.transform.tag == "Ally" && Input.GetMouseButton(1))
+            if(hit.transform.tag == "Ally" && Input.GetMouseButton(1) && !MoveCamera.cameraOn) //tira inimigo
             {
                 Destroy(hit.transform.gameObject);
-                MoneyManager.remainingMoney += costMob;
+                MoneyManager.remainingMoney += hit.transform.GetComponent<Cost>().cost;
                 //UpdateCostColor.updateColor(); // aq tbm
                 UpdateRemainingMoney.updateMoneyText();
-            }
-
-            if (hit.transform.tag == "Enemy" && Input.GetMouseButtonDown(0))
-            {
-                hit.transform.gameObject.GetComponent<Life>().ReceiveDamage(100);
             }
         }
     }

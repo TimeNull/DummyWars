@@ -53,7 +53,8 @@ public class GameManager : SceneSingleton<GameManager>
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("START GAME");
-            startGame.Invoke();
+            if (GameObject.FindGameObjectWithTag("Ally"))
+                startGame.Invoke();
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && !gamePaused)
@@ -77,7 +78,8 @@ public class GameManager : SceneSingleton<GameManager>
 
     public void StartGame()
     {
-        startGame.Invoke();
+        if(GameObject.FindGameObjectWithTag("Ally"))
+            startGame.Invoke();
     }
 
     public void GameOver()

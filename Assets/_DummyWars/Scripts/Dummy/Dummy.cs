@@ -7,6 +7,20 @@ public abstract class Dummy : MonoBehaviour
 {
     protected BehaviourTree bt;
 
+    //TODO: ScriptableObject here
+
+    public float damage = 5;
+
+    public float fireTime = 5;
+
+    public float fireCooldown = 10;
+
+    public GameObject bullet;
+
+    public float bulletSpeed;
+
+    public Transform firePoint;
+
     protected virtual void Awake()
     {
         bt = GetComponent<BehaviourTree>();
@@ -26,7 +40,8 @@ public abstract class Dummy : MonoBehaviour
 
     private void OnDisable()
     {
-        GameManager.Instance.startGame -= StartBehaviour;
+        if(GameManager.Instance)
+            GameManager.Instance.startGame -= StartBehaviour;
     }
 
     private void StartBehaviour() => StartCoroutine(bt.Begin());

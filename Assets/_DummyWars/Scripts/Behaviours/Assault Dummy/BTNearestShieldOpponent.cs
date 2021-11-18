@@ -5,20 +5,25 @@ using UnityEngine;
 
 public class BTNearestShieldOpponent : BTNode
 {
-
     public override IEnumerator Run(BehaviourTree bt)
     {
         status = Status.RUNNING;
 
         Print(bt);
 
-        const string TAG = "Enemy";
+        const string Enemy = "Enemy";
+        const string Ally = "Ally";
+        string Target = null;
 
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(TAG);
+        if (bt.tag == Enemy) Target = Ally;
+        if (bt.tag == Ally) Target = Enemy;
+
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(Target);
 
         if (enemies.Length < 1)
         {
             status = Status.FAILURE;
+            Print(bt);
             yield break;
         }
 
@@ -37,12 +42,21 @@ public class BTNearestShieldOpponent : BTNode
                 distance = startDistance;
                 target = obj;
             }
+
             yield return null;
         }
 
-        bt.target = target;
+        if (!target)
+        {
+            status = Status.FAILURE;
+            Print(bt);
+            yield break;
+        }
 
-        yield return null;
+        bt.target = target;
+        Print(bt);
+        status = Status.SUCCESS;
+
     }
 }
 
