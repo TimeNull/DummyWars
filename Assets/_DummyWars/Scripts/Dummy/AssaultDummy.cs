@@ -13,7 +13,7 @@ public class AssaultDummy : Dummy
         check.children.Add(new BTNearestShieldOpponent());
         check.children.Add(new BTNearestOpponent());
 
-        BTMoveToOpponent move = new BTMoveToOpponent();
+        BTMoveToTarget move = new BTMoveToTarget();
 
         BTSequence combat = new BTSequence();
         combat.children.Add(new BTOpponentIsAlive());

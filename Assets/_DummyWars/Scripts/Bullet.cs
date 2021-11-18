@@ -37,10 +37,11 @@ public class Bullet : MonoBehaviour
         //to avoid self harm, I disabled collision of layer Enemy with Enemy, and Player with Player
         //remember to change that if enemies are going to kill themselves in the future
 
-        //if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Ally"))
-        //{
-        //    collision.gameObject.GetComponent<Life>().ReceiveDamage(damage);
-        //}
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Ally"))
+        {
+            collision.gameObject.GetComponent<Life>().ReceiveDamage(damage);
+            Destroy(gameObject);
+        }
 
     }
 

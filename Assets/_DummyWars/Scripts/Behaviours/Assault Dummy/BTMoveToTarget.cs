@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-public class BTMoveToOpponent : BTNode
+public class BTMoveToTarget : BTNode
 {
 
     public override IEnumerator Run(BehaviourTree bt)
